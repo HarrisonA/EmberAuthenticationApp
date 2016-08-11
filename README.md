@@ -2,6 +2,8 @@
 
 A basic app that requires authentication to access the main route. Built with Ember 2.3 and uses a simple Node/Express server (endpoints located /server/index.js) for authentication.
 
+The login credentials are passed to the server, which verifies them and then returns a token. This token is required to access the main route.
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.

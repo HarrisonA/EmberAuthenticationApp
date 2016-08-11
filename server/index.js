@@ -45,9 +45,9 @@ module.exports = function(app) {
   app.get('/api/codes', function (req, res) {
 
     // Check for user authorization
-    // // if (req.headers['authorization'] !== "Bearer some bs") {
-    //   return res.status(401).send('Unauthorized');
-    // }
+    if (req.headers['authorization'] !== "Bearer some bs") {
+      return res.status(401).send('Unauthorized');
+    }
 
     return res.status(200).send({
       codes: [

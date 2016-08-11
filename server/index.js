@@ -45,7 +45,7 @@ module.exports = function(app) {
   app.get('/api/codes', function (req, res) {
 
     // Check for user authorization
-    if (req.headers['authorization'] !== "Bearer some bs") {
+    if (req.headers['authorization'] !== "Access granted to token 123456") {
       return res.status(401).send('Unauthorized');
     }
 
@@ -55,6 +55,19 @@ module.exports = function(app) {
         { id: 2, description: 'Putin Nuclear Missile Launching Code is: invasioncoolashuntingshirtless' }
       ]
     });
+  });
+
+
+  // endpoint named /token through which clients can obtain a
+  // token (in order to query the API)
+  app.post('/token', function(req, res) {
+
+    if (req.body.username == 'login' && req.body.password == 'ok') {
+      res.send({ access_token: "123456" });
+    } else {
+      res.status(400).send({ error: "invalid_grant" });
+    }
+
   });
 
 };

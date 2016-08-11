@@ -24,6 +24,18 @@ You will need the following things properly installed on your computer.
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
+### Important Notes
+
+This app is very basic and is lacking:
+
+* pluggable authenticators/authorizers
+* error handling
+* events, interception and redirection
+* cross-tab communication
+* session persistence across reloads
+* authorization
+* etc...
+
 ### References used to build this app
 
 https://emberigniter.com/implementing-authentication-with-ember-services/

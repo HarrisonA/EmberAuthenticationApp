@@ -49,17 +49,53 @@ module.exports = function(app) {
       return res.status(401).send('Unauthorized');
     }
 
-    return res.status(200).send({
-      codes: [
-        { id: 1, description: 'Obama Nuclear Missile Launching Code is: lovedronesandthensa' },
-        { id: 2, description: 'Putin Nuclear Missile Launching Code is: invasioncoolashuntingshirtless' }
-      ]
-    });
+    return res.status(200).send(
+      // codes: [
+      //   { id: 1, description: 'Obama Nuclear Missile Launching Code is: lovedronesandthensa' },
+      //   { id: 2, description: 'Putin Nuclear Missile Launching Code is: invasioncoolashuntingshirtless' }
+      // ]
+
+      // This replaces the above by putting it in the proper format expected
+      // by the JSONAPIAdapter
+      {
+        "data": [
+          {
+            "id": "1",
+            "type": "codes",
+            "attributes": {
+              "description": "Obama Nuclear Missile Launching Code is: lovedronesandthensa"
+            },
+          },
+          {
+            "id": "2",
+            "type": "codes",
+            "attributes": {
+              "description": "Putin Nuclear Missile Launching Code is: invasioncoolashuntingshirtless"
+            }
+          }
+        ]
+      });
   });
 
   // create a dummy response, which for now will live at /api/users
   app.get('/api/users', function (req, res) {
-    return res.status(200).send({ user: { id: 1, email: 'vladimir@kremlin.ru' }});
+    // return res.status(200).send({ user: { id: 1, email: 'vladimir@kremlin.ru' }});
+
+    // This replaces the above by putting it in the proper format expected
+    // by the JSONAPIAdapter
+
+    return res.status(200).send(
+      {
+        "data":
+          {
+            "id": "1",
+            "type": "user",
+            "attributes": {
+              "email": "vladimir@kremlin.ru"
+            }
+          }
+      });
+
   });
 
   // endpoint named /token through which clients can obtain a

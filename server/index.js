@@ -45,7 +45,6 @@ module.exports = function(app) {
   app.get('/api/codes', function (req, res) {
 
     // Check for user authorization
-    console.log("the req header", req.headers);
     if (req.headers['authorization'] !== "Bearer some bs") {
       return res.status(401).send('Unauthorized');
     }
@@ -58,6 +57,10 @@ module.exports = function(app) {
     });
   });
 
+  // create a dummy response, which for now will live at /api/users
+  app.get('/api/users', function (req, res) {
+    return res.status(200).send({ user: { id: 1, email: 'vladimir@kremlin.ru' }});
+  });
 
   // endpoint named /token through which clients can obtain a
   // token (in order to query the API)

@@ -45,7 +45,8 @@ module.exports = function(app) {
   app.get('/api/codes', function (req, res) {
 
     // Check for user authorization
-    if (req.headers['authorization'] !== "Access granted to token 123456") {
+    console.log("the req header", req.headers);
+    if (req.headers['authorization'] !== "Bearer some bs") {
       return res.status(401).send('Unauthorized');
     }
 
@@ -63,7 +64,7 @@ module.exports = function(app) {
   app.post('/token', function(req, res) {
 
     if (req.body.username == 'login' && req.body.password == 'ok') {
-      res.send({ access_token: "123456" });
+      res.send({ access_token: "some bs" });
     } else {
       res.status(400).send({ error: "invalid_grant" });
     }

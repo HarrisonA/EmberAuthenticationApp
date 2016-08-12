@@ -1,8 +1,10 @@
 # Ember-authentication-app
 
-A basic app that requires authentication to access the main route. Built with Ember 2.3 and uses a simple Node/Express server (endpoints located /server/index.js) for authentication.
+A basic app that requires authentication to access the main route and show the fake secret codes. Built with Ember 2.3 and uses a simple Node/Express server (endpoints located /server/index.js) for authentication.
 
 The login credentials are passed to the server, which verifies them and then returns a token. This token is required to access the main route.
+
+The app also displays the email address of the authenticated user (currently hardcoded for testing purposes)
 
 ## Prerequisites
 
@@ -38,6 +40,6 @@ This app is very basic and is lacking:
 * authorization
 * etc...
 
-### References used to build this app
+### AWESOME references used in building this app
 
 https://emberigniter.com/implementing-authentication-with-ember-services/

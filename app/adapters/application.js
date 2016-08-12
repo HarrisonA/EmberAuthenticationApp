@@ -1,13 +1,8 @@
-// Important NOTE:
-// replacing JSONAPIAdapter for this app, but will need to figure out
-// how to get authentication to work with JSONAPIAdapter in the future
-
 import DS from 'ember-data';
 
-
-// export default DS.JSONAPIAdapter.extend({
 /*
-export default DS.RESTAdapter.extend({
+// Using DS.JSONAPIAdapter instead of DS.RESTAdapter
+export default DS.JSONAPIAdapter.extend({
   // In order to load that data into our app, let’s update our custom adapter.
   // Simply adding the namespace for our API will suffice.
   namespace: 'api',
@@ -30,8 +25,7 @@ export default DS.RESTAdapter.extend({
 
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 
-// export default DS.RESTAdapter.extend(DataAdapterMixin, {
-// Using JSONAPIAdapter instead (due to its common use on my team)
+// Using DS.JSONAPIAdapter (my team's default) instead of DS.RESTAdapter
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
 
   namespace: 'api',
